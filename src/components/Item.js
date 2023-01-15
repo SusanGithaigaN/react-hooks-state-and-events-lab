@@ -4,15 +4,14 @@ function Item({ name, category }) {
   const [addItems, setAddItems] = useState(false);
 
   function addToCart(){
-    setAddItems((addItems) =>!addItems)
+    setAddItems((addItems) => !addItems);
   }
- 
-  const itemsInCart = addItems ? "in-cart" : "";
+  
   return (
-    <li className={itemsInCart}>
+    <li className={addItems ? "in-cart" : ""}>
       <span>{name}</span>
       <span className="category">{category}</span>
-      <button className="add" onClick={addToCart}>{itemsInCart ? "Remove from" : "Add to"} cart</button>
+      <button className={addItems ? "remove" : "add"} onClick={addToCart}>{addItems ? "Remove from" : "Add to"} Cart</button>
     </li>
   );
 }
